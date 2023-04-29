@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">INotes</string>
+    <string name="edit">Edit</string>
+    <string name="folders">Folders</string>
+    <string name="notes">Notes</string>
+    <string name="search">Search</string>
+
+</resources>

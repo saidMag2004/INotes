@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="yellowBtn">#FFE7CE10</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="defaultGray">#302F2F</color>
+</resources>

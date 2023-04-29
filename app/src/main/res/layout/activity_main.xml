@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#141313"
+    android:padding="15dp"
+    tools:context=".MainActivity">
+
+
+    <Button
+        android:background="@android:color/transparent"
+        android:id="@+id/editBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hapticFeedbackEnabled="false"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:padding="0dp"
+        android:text="@string/edit"
+        android:textColor="#E7CE10"
+        app:layout_constraintBaseline_creator="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/folders"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/folders"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editBtn" />
+
+    <AutoCompleteTextView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bordersearch"
+        android:drawableLeft="@drawable/ic_search"
+        android:hint="@string/search"
+        android:paddingLeft="6dp"
+
+        android:textColorHint="#5AFFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/folders" />
+
+    <Button
+        android:id="@+id/folder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/defaultGray"
+        android:paddingLeft="15dp"
+        android:layout_marginTop="25dp"
+        android:text="@string/notes"
+        android:textAlignment="viewStart"
+        android:textSize="18sp"
+        app:cornerRadius="12dp"
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        android:drawableLeft="@drawable/folder"
+        android:drawableRight="@drawable/chevron"
+        android:textColor="@android:color/white"
+        android:paddingRight="10dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableRight="@drawable/makenote"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:drawableLeft="@drawable/addfolder"
+         />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
