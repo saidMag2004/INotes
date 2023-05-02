@@ -10,11 +10,12 @@
 
 
     <Button
-        android:background="@android:color/transparent"
         android:id="@+id/editBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
         android:hapticFeedbackEnabled="false"
+        android:linksClickable="false"
         android:minWidth="0dp"
         android:minHeight="0dp"
         android:padding="0dp"
@@ -51,31 +52,78 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/folders" />
 
-    <Button
-        android:id="@+id/folder"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/defaultGray"
-        android:paddingLeft="15dp"
-        android:layout_marginTop="25dp"
-        android:text="@string/notes"
-        android:textAlignment="viewStart"
-        android:textSize="18sp"
-        app:cornerRadius="12dp"
-        app:layout_constraintTop_toBottomOf="@+id/searchView"
-        android:drawableLeft="@drawable/folder"
-        android:drawableRight="@drawable/chevron"
-        android:textColor="@android:color/white"
-        android:paddingRight="10dp" />
 
-    <TextView
-        android:id="@+id/textView"
+    <LinearLayout
+
+        android:layout_marginTop="25dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableRight="@drawable/makenote"
+        android:layout_height="40dp"
+        android:background="@drawable/bordersearch"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="25dp"
+        android:paddingRight="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        tools:layout_editor_absoluteX="15dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            app:srcCompat="@drawable/folder" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="@string/notes"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            tools:text="0"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            app:srcCompat="@drawable/chevron" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:drawableLeft="@drawable/addfolder"
-         />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="add folder"
+            android:textColor="@color/yellowBtn"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:textSize="18sp"
+            android:textColor="@color/yellowBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="add note"
+            android:textAlignment="textEnd"/>
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
