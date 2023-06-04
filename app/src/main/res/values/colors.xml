@@ -2,5 +2,6 @@
 <resources>
     <color name="yellowBtn">#FFE7CE10</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="black">#141313</color>
     <color name="defaultGray">#302F2F</color>
 </resources>

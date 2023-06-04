@@ -4,5 +4,8 @@
     <string name="folders">Folders</string>
     <string name="notes">Notes</string>
     <string name="search">Search</string>
+    <string name="your_note">Your note...</string>
+    <string name="text_notes">Notes</string>
+    <string name="text_title">Title</string>
 
 </resources>

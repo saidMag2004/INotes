@@ -5,4 +5,7 @@
     <string name="folders">Папки</string>
     <string name="notes">Заметки</string>
     <string name="search">Поиск</string>
+    <string name="your_note">Ваша заметка...</string>
+    <string name="text_notes">Заметки</string>
+    <string name="text_title">Название</string>
 </resources>

@@ -37,11 +37,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editBtn" />
 
+
     <AutoCompleteTextView
         android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/bordersearch"
         android:drawableLeft="@drawable/ic_search"
         android:hint="@string/search"
@@ -49,12 +50,12 @@
 
         android:textColorHint="#5AFFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/folders" />
 
-
     <LinearLayout
-
+        android:id="@+id/defaultNotesStorage"
         android:layout_marginTop="25dp"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -70,7 +71,6 @@
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="0"
             app:srcCompat="@drawable/folder" />
 
         <TextView
@@ -83,6 +83,7 @@
             android:textSize="18sp" />
 
         <TextView
+            android:id="@+id/notesCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
@@ -99,31 +100,27 @@
     </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="add folder"
+        android:textColor="@color/yellowBtn"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent" />
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="add folder"
-            android:textColor="@color/yellowBtn"
-            android:textSize="18sp"/>
-
-        <TextView
-            android:textSize="18sp"
-            android:textColor="@color/yellowBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="add note"
-            android:textAlignment="textEnd"/>
-    </LinearLayout>
+    <TextView
+        android:id="@+id/addNoteView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="add note"
+        android:textAlignment="textEnd"
+        android:textColor="@color/yellowBtn"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
