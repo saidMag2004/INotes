@@ -8,4 +8,7 @@
     <string name="your_note">Ваша заметка...</string>
     <string name="text_notes">Заметки</string>
     <string name="text_title">Название</string>
+    <string name="add_note">добавить заметку</string>
+    <string name="add_folder">добавить папку</string>
+    <string name="empty_field_warning">Имя заметки введено некорректно</string>
 </resources>

@@ -7,5 +7,8 @@
     <string name="your_note">Your note...</string>
     <string name="text_notes">Notes</string>
     <string name="text_title">Title</string>
+    <string name="add_note">add note</string>
+    <string name="add_folder">add folder</string>
+    <string name="empty_field_warning">Value in name field is incorrect</string>
 
 </resources>

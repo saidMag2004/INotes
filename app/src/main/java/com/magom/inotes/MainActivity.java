@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity{
+    private DataBase dataBase = DataBase.getInstance();
     int notesCount;
     LinearLayout notesStorageButton;
     TextView notesCountView;
@@ -20,40 +21,35 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
         init();
 
-
         notesStorageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nextActivityNotesStorage();
+                nextPageNotesStorage();
             }
         });
-
-        notesCount = getIntent().getIntExtra("notesCount", 0);
-        if (notesCount>0){
-            notesCountView.setText(notesCount+"");
-        }
-
     }
 
 
     private void init(){
         notesStorageButton = findViewById(R.id.defaultNotesStorage);
-
         notesCountView = findViewById(R.id.notesCount);
     }
 
-    public static Intent newIntent(Context context, int notesCount) {
-        Intent intent = new Intent(context, MainActivity.class);
-        intent.putExtra("notesCount", notesCount);
-        return intent;
-    }
-    private void nextActivityNotesStorage() {
-        Intent intent = NotesStorage.newIntent(this);
+    private void nextPageNotesStorage(){
+        Intent intent = NotesStorage.newIntent(MainActivity.this);
         startActivity(intent);
     }
 
     @Override
     public void onBackPressed() {
         finish();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(dataBase.getNotes().size()!=0){
+            notesCountView.setText(dataBase.getNotes().size()+"");
+        }
     }
 }

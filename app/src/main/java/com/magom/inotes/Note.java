@@ -1,14 +1,14 @@
 package com.magom.inotes;
 
-import java.io.Serializable;
-
-public class Note implements Serializable {
+public class Note {
     private String noteName;
     private String noteText;
+    private int id;
 
-    public Note(String noteName, String noteText) {
+    public Note(String noteName, String noteText, int id) {
         this.noteName = noteName;
         this.noteText = noteText;
+        this.id = id;
     }
 
     public String getNoteName() {
@@ -19,11 +19,7 @@ public class Note implements Serializable {
         return noteText;
     }
 
-    public void setNoteName(String noteName) {
-        this.noteName = noteName;
-    }
-
-    public void setNoteText(String noteText) {
-        this.noteText = noteText;
+    public int getId() {
+        return id;
     }
 }
