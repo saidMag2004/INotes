@@ -29,4 +29,8 @@ public class DataBase {
     public ArrayList<Note> getNotes(){
         return new ArrayList<Note>(notes);
     }
+
+    public Note getNote(int id){
+        return new ArrayList<Note>(notes).get(id-1);
+    }
 }

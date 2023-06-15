@@ -73,6 +73,8 @@ public class NotesStorage extends AppCompatActivity{
 
     }
 
+
+
     @Override
     public void onBackPressed() {
         prevToMainActivity();
@@ -91,6 +93,14 @@ public class NotesStorage extends AppCompatActivity{
                     linearNotesGroup,
                     false
             );
+
+            noteView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = EditNote.newIntent(NotesStorage.this, note.getNoteName(), note.getNoteText(), note.getId());
+                    startActivity(intent);
+                }
+            });
 
             TextView noteNameView = noteView.findViewById(R.id.xmlNote);
             noteNameView.setText(note.getNoteName());

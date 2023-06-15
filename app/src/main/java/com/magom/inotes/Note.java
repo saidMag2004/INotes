@@ -5,6 +5,14 @@ public class Note {
     private String noteText;
     private int id;
 
+    public void setNoteName(String noteName) {
+        this.noteName = noteName;
+    }
+
+    public void setNoteText(String noteText) {
+        this.noteText = noteText;
+    }
+
     public Note(String noteName, String noteText, int id) {
         this.noteName = noteName;
         this.noteText = noteText;
