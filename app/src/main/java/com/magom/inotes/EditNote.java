@@ -11,11 +11,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class EditNote extends AppCompatActivity {
+    private static final String  NOTE_NAME_EXTRA = "noteName";
+    private static final String  NOTE_TEXT_EXTRA = "noteText";
+    private static final String  NOTE_ID_EXTRA = "noteId";
+
+
     DataBase dataBase = DataBase.getInstance();
     TextView noteTextView;
     TextView noteNameView;//text-view текстового поля с именем заметки
     Button backToNotesStorageBtn;
-
 
 
 
@@ -25,35 +29,44 @@ public class EditNote extends AppCompatActivity {
         setContentView(R.layout.activity_note_edit);
         init();
 
+//--------Прием данных с существующей заметки---------
+        String noteName = getIntent().getStringExtra(NOTE_NAME_EXTRA);
+        String noteText = getIntent().getStringExtra(NOTE_TEXT_EXTRA);
+        int noteId = getIntent().getIntExtra(NOTE_ID_EXTRA, 0);
+//--------Прием данных с существующей заметки---------
 
-        String noteName = getIntent().getStringExtra("noteName");
-        String noteText = getIntent().getStringExtra("noteText");
-        int noteId = getIntent().getIntExtra("noteId", 0);
-
+//--------Установка этих значений на данном экране, если что то передано вообще
         setNotesAttr(noteName, noteText);
 
         backToNotesStorageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//Тут регулируется поведение NotesStorage в зависимости                 
                 String noteName = noteNameView.getText().toString();
                 String noteText = noteTextView.getText().toString();
 
                 if(noteId == 0){
                     prevToNotesStorage();
-                }else{
-                    if(isFieldFilled(noteName) == 0){
+                }//если заметка новая
+                else{
+                    if(isStringFilled(noteName) == 0 && isStringFilled(noteText) == 0){
                         Toast.makeText(
                                 EditNote.this,
-                                R.string.empty_field_warning,
+                                R.string.empty_note_warning,
                                 Toast.LENGTH_SHORT
                         ).show();
-                    }else {
+                        dataBase.remove(noteId);
+                    }else if(isStringFilled(noteName) == 0){
+                        noteName = "Note";
+                        dataBase.getNote(noteId).setNoteName(noteName);
+                        dataBase.getNote(noteId).setNoteText(noteText);
+                    }else{
                         dataBase.getNote(noteId).setNoteName(noteName);
                         dataBase.getNote(noteId).setNoteText(noteText);
                     }
-                    finish();
 
-                }
+                    finish();
+                }//если заметка существующая
             }
         });
 
@@ -73,9 +86,9 @@ public class EditNote extends AppCompatActivity {
 
     public static Intent newIntent(Context context, String noteName, String noteText, int id){
         Intent intent = new Intent(context, EditNote.class);
-        intent.putExtra("noteName", noteName);
-        intent.putExtra("noteText", noteText);
-        intent.putExtra("noteId", id);
+        intent.putExtra(NOTE_NAME_EXTRA, noteName);
+        intent.putExtra(NOTE_TEXT_EXTRA, noteText);
+        intent.putExtra(NOTE_ID_EXTRA, id);
         return intent;
     }
 
@@ -95,21 +108,27 @@ public class EditNote extends AppCompatActivity {
     private void addNote(){
         String noteNameText = noteNameView.getText().toString();
         String noteText = noteTextView.getText().toString();
-        int id = dataBase.getNotes().size() + 1;
+        int noteId = dataBase.getNotes().size() + 1;
 
-        if(isFieldFilled(noteNameText) == 0){
+
+        if(isStringFilled(noteNameText) == 0 && isStringFilled(noteText) == 0){
             Toast.makeText(
                     EditNote.this,
-                    R.string.empty_field_warning,
+                    R.string.empty_note_warning,
                     Toast.LENGTH_SHORT
             ).show();
-        }else {
-            Note note = new Note(noteNameText, noteText, id);
+
+        }else if(isStringFilled(noteNameText) == 0){
+            noteNameText = "Note";
+            Note note = new Note(noteNameText, noteText, noteId);
+            dataBase.add(note);
+        }else{
+            Note note = new Note(noteNameText, noteText, noteId);
             dataBase.add(note);
         }
     }
 
-    private int isFieldFilled(String string){
+    private int isStringFilled(String string){
         if(string.trim().isEmpty()){
             return 0;
         }else{

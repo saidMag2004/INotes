@@ -31,7 +31,6 @@ public class NotesStorage extends AppCompatActivity{
 
         init();
 
-        Log.i(TAG, dataBase.getNotes().size()+" is note's size");
 
         backToMainBtn.setOnClickListener(new View.OnClickListener() {
             @Override

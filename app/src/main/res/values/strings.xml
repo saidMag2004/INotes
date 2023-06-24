@@ -9,6 +9,7 @@
     <string name="text_title">Title</string>
     <string name="add_note">add note</string>
     <string name="add_folder">add folder</string>
-    <string name="empty_field_warning">Value in name field is incorrect</string>
+    <string name="empty_note_warning">Missing text in note</string>
+    <string name="note">Note</string>
 
 </resources>

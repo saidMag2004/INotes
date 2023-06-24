@@ -13,7 +13,7 @@
     android:textSize="19sp"
     android:textStyle="bold"
     android:background="@drawable/note_back"
-    tools:text="Note"
+    tools:text="@string/note"
     android:layout_marginTop="10dp"
 
 
