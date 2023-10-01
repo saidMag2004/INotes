@@ -10,46 +10,53 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity{
-    private DataBase dataBase = DataBase.getInstance();
-    int notesCount;
-    LinearLayout notesStorageButton;
+    LinearLayout defaultNotesStorageButton;
+    TextView addNoteBtn;
     TextView notesCountView;
-
+    Database database = Database.newInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         init();
 
-        notesStorageButton.setOnClickListener(new View.OnClickListener() {
+        defaultNotesStorageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nextPageNotesStorage();
+                launchNotesStorageScreen();
             }
         });
+        addNoteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchEditNoteScreen();
+            }
+        });
+
     }
 
-
     private void init(){
-        notesStorageButton = findViewById(R.id.defaultNotesStorage);
+        defaultNotesStorageButton = findViewById(R.id.defaultNotesStorage);
+        addNoteBtn = findViewById(R.id.addNoteView);
         notesCountView = findViewById(R.id.notesCount);
     }
 
-    private void nextPageNotesStorage(){
-        Intent intent = NotesStorage.newIntent(MainActivity.this);
+    private void launchNotesStorageScreen(){
+        Intent intent = NotesStorage.newIntent(this);
+        startActivity(intent);
+    }
+    private void launchEditNoteScreen(){
+        Intent intent = EditNote.newIntent(this);
         startActivity(intent);
     }
 
-    @Override
-    public void onBackPressed() {
-        finish();
-    }
 
     @Override
     protected void onResume() {
         super.onResume();
-        if(dataBase.getNotes().size()!=0){
-            notesCountView.setText(dataBase.getNotes().size()+"");
+        if(database.getSize() != 0){
+            notesCountView.setText(database.getSize()+"");
         }
     }
 }

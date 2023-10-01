@@ -3,31 +3,34 @@ package com.magom.inotes;
 public class Note {
     private String noteName;
     private String noteText;
-    private int id;
+    private int noteId;
 
-    public void setNoteName(String noteName) {
-        this.noteName = noteName;
-    }
 
-    public void setNoteText(String noteText) {
-        this.noteText = noteText;
-    }
 
-    public Note(String noteName, String noteText, int id) {
+    public Note(String noteName, String noteText, int noteId) {
         this.noteName = noteName;
         this.noteText = noteText;
-        this.id = id;
+        this.noteId = noteId;
     }
 
     public String getNoteName() {
         return noteName;
     }
 
+    public void setNoteName(String noteName) {
+        this.noteName = noteName;
+    }
+
     public String getNoteText() {
         return noteText;
     }
 
-    public int getId() {
-        return id;
+    public void setNoteText(String noteText) {
+        this.noteText = noteText;
     }
+
+    public int getNoteId() {
+        return noteId;
+    }
+
 }
